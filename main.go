@@ -22,8 +22,8 @@ func main() {
 
 	var a stack
 	a = append(a, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-
-	fmt.Println(a.push(20))
+	a = a.push(20)
+	fmt.Println(a)
 	fmt.Println(a.pop())
 }
 
@@ -34,10 +34,11 @@ func (s stack) push(a int) stack {
 
 func (s stack) pop() (int, error) {
 	if len(s) == 0 {
-		return 0, errors.New("type")
+		return 0, errors.New("Empty stack")
 	}
 	a := s[len(s)-1]
-	s = append(s[len(s):], s[:len(s)-1]...)
+	s = s[:len(s)-1]
+	fmt.Println(s)
 	return a, nil
 }
 
